@@ -1,0 +1,51 @@
+body{
+display: grid;
+grid-template-columns: 1.5fr  3fr;
+
+}
+
+.left-column {
+    border-right: 3px solid black;
+    min-height: 100vh;
+    
+}
+
+.icon{
+width: 20%;
+height: 100%;
+position: absolute;
+top: 1.5%;
+}
+
+
+.M-icon {
+    left: 1.5%;
+}
+
+.A-icon {
+    right: 1.5%;
+
+}
+
+.suggestion-con{
+display: flex;
+flex-wrap: wrap;
+align-items: center;
+}
+
+.suggestion-box {
+position: relative;
+text-align: center;
+
+margin-top: 2rem;
+    width: 80%;
+    height: 8rem;
+border: 3px solid black;
+}
+
+.suggestion-box-info {
+font-family: Impact, Haettenschweiler, 'Arial Narrow Bold', sans-serif;
+}
+
+
+
