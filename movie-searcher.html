@@ -6,6 +6,7 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
     <link rel="stylesheet" href="styles.css">
+    <script src="app.js"></script>
     <title>MOVIES SEARCH</title>
 </head>
 <body>
@@ -13,21 +14,16 @@
 <div class="left-column">
 
     <form class="form">
-<input type="search" name="movieTBS" id="search">
+<input type="search" name="movieTBS" id="search" placeholder="search">
 <button type="submit"><i class="fa fa-search"></i></button>
 
     </form>
 
+    <p class="error"></p>
 <div class="suggestion-con">
 
-<div class="suggestion-box">
+<div class="suggestion-box" hidden>
 <img src="images/free-movie-icon.png" alt="movie icon" class="icon M-icon">
-
-<p class="suggestion-box-info">test</p>
-<p class="suggestion-box-info">test</p>
-<p class="suggestion-box-info">test</p>
-
-<img src="images/right-arrow.png" alt="right arrow" class="icon A-icon">
 
 
 </div>
@@ -40,6 +36,8 @@
 </div>
 
 <div class="right-column">
+
+
 
     <div class="movie-info">
 

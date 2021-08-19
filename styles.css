@@ -47,5 +47,14 @@ border: 3px solid black;
 font-family: Impact, Haettenschweiler, 'Arial Narrow Bold', sans-serif;
 }
 
+.display-box-item {
+    text-align: center;
+}
+
+.right-column {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
 
 
