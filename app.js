@@ -14,10 +14,10 @@ function view(title) {
 // set up right side box
 const displayInfo = (title, year, rated, runtime, boxoffice) => {
     movieInfo = document.querySelector(".movie-info");
-    // movieInfo.childNodes.forEach((child) => child.remove());
-    while (movieInfo.firstChild) {
-        movieInfo.removeChild(movieInfo.firstChild);
-    }
+
+     while (movieInfo.firstChild) {
+         movieInfo.removeChild(movieInfo.firstChild);
+     }
 
 const p1 = document.createElement('p');
     p1.textContent = title;
@@ -50,7 +50,7 @@ const p1 = document.createElement('p');
 }
 
 
-function createBox (title, year, rated) {
+function createBox (title, year, typeOf, img) {
     
     const newBox = suggestionBox.cloneNode("deep");
     newBox.hidden = false;
@@ -64,19 +64,23 @@ function createBox (title, year, rated) {
     newBox.append(p2);
     
     const p3 = document.createElement('p');
-    p3.textContent = rated;
+    p3.textContent = typeOf;
     newBox.append(p3);
 
     // right arrow 
 const arrow = document.createElement("img");
 arrow.src = 'images/right-arrow.png';
 arrow.className = "icon A-icon";
+newBox.append(arrow);
+
+    //movie picture
+    const picture = document.createElement('img');
+    picture.src = img;
+    picture.className = "icon M-icon";
+    newBox.append(picture);
 
 arrow.addEventListener("click", (e) => view(title));
 
-newBox.append(arrow);
-    
-    
     form.movieTBS.value = "";
     return newBox
     };
@@ -91,7 +95,7 @@ myError = document.querySelector('.error')
         e.preventDefault();
         myError.textContent = "";
 
-         fetch(`http://www.omdbapi.com/?t=${e.target.movieTBS.value}&apikey=b2954140`)
+         fetch(`http://www.omdbapi.com/?s=${e.target.movieTBS.value}&apikey=b2954140`)  
          .then((e) => e.json())
           .then((data) => {
               // error settings
@@ -100,12 +104,16 @@ myError = document.querySelector('.error')
                 if (e.target.movieTBS.value == false) {
                     myError.textContent = "The search bar is blank";
                 } else {
+
                     myError.textContent = data.Error;
                 }
                 
             } else {
                 form.value = "";
-                suggestionCon.append(createBox(data.Title, data.Year, data.Rated))
+                data.Search.forEach(data => {
+                    suggestionCon.append(createBox(data.Title, data.Year, data.Type, data.Poster))
+                });
+                
             }
           })
           
