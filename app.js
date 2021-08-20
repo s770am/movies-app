@@ -109,9 +109,10 @@ myError = document.querySelector('.error')
                 }
                 
             } else {
+                suggestionCon.innerHTML = "";
                 form.value = "";
                 data.Search.forEach(data => {
-                    suggestionCon.append(createBox(data.Title, data.Year, data.Type, data.Poster))
+                suggestionCon.append(createBox(data.Title, data.Year, data.Type, data.Poster))
                 });
                 
             }
